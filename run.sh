@@ -1,9 +1,9 @@
 if [ "$WERCKER_RESULT" = "passed" ]; then
-   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"success\"}";
+   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"success\",\"target_url\":\"$WERCKER_BUILD_URL\"}";
 elif [ "$WERCKER_RESULT" = "failed" ]; then
-   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"failure\"}";
+   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"failure\",\"target_url\":\"$WERCKER_BUILD_URL\"}";
 else
-   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"pending\"}";
+   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"pending\",\"target_url\":\"$WERCKER_BUILD_URL\"}";
 fi
 
 curl -H "Authorization: token $WERCKER_GITHUB_BUILD_NOTIFY_TOKEN" \
