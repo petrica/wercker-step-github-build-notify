@@ -12,3 +12,6 @@ properties:
   target_url:
     type: string
     required: false
+  description:
+    type: string
+    required: false
