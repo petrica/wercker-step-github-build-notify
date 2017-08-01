@@ -1,15 +1,15 @@
 if [ ! -n "$WERCKER_GITHUB_BUILD_NOTIFY_TARGET_URL" ]
 then
-    WERCKER_GITHUB_BUILD_NOTIFY_TOKEN=$WERCKER_BUILD_URL
+    WERCKER_GITHUB_BUILD_NOTIFY_TARGET_URL=$WERCKER_BUILD_URL
 fi
 
 
 if [ "$WERCKER_RESULT" = "passed" ]; then
-   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"success\",\"target_url\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"description\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"context\":\"wercker/$WERCKER_DEPLOYTARGET_NAME\"}";
+   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"success\",\"target_url\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TARGET_URL\",\"description\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"context\":\"wercker/$WERCKER_DEPLOYTARGET_NAME\"}";
 elif [ "$WERCKER_RESULT" = "failed" ]; then
-   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"failure\",\"target_url\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"description\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"context\":\"wercker/$WERCKER_DEPLOYTARGET_NAME\"}";
+   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"failure\",\"target_url\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TARGET_URL\",\"description\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"context\":\"wercker/$WERCKER_DEPLOYTARGET_NAME\"}";
 else
-   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"pending\",\"target_url\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"description\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"context\":\"wercker/$WERCKER_DEPLOYTARGET_NAME\"}";
+   export WERCKER_GITHUB_BUILD_NOTIFY_STATE="{\"state\":\"pending\",\"target_url\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TARGET_URL\",\"description\":\"$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN\",\"context\":\"wercker/$WERCKER_DEPLOYTARGET_NAME\"}";
 fi
 
 info "JSON: $WERCKER_GITHUB_BUILD_NOTIFY_STATE"
