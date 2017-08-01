@@ -16,7 +16,7 @@ info "JSON: $WERCKER_GITHUB_BUILD_NOTIFY_STATE"
 
 if [ ! -z "$WERCKER_GITHUB_BUILD_NOTIFY_TOKEN" ]; then
 	curl -H "Authorization: token $WERCKER_GITHUB_BUILD_NOTIFY_TOKEN" \
-	    -d $WERCKER_GITHUB_BUILD_NOTIFY_STATE \
+	    -d "$WERCKER_GITHUB_BUILD_NOTIFY_STATE" \
 	    https://api.github.com/repos/$WERCKER_GIT_OWNER/$WERCKER_GIT_REPOSITORY/statuses/$WERCKER_GIT_COMMIT
 else
 	info "Github access key not provided. Skipping step."

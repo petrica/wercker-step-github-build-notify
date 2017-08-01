@@ -1,5 +1,5 @@
 name: github-build-notify
-version: 0.1.5
+version: 0.1.6
 description: A wercker step to notify build status for current pipeline to Github private repo
 keywords:
   - github
